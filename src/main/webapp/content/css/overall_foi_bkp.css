@@ -1,0 +1,41 @@
+
+.overall_foi_section
+{
+
+	height: calc(var(--su)*11);
+
+}
+
+
+.link_pred
+{
+	cursor : pointer;
+}
+
+
+
+
+.text_node_pred
+{
+	font-family: Montserrat;
+    text-anchor: middle;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 11px;
+    fill: #000;
+    fill-opacity: 0.7;
+
+	text-transform: capitalize;
+
+
+}
+
+
+
+
+
+.node_info
+{
+
+
+}

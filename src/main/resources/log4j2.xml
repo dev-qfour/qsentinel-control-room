@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+
+		<!-- Console Appender -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				disableAnsi="true" 
+				pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}.%M: %msg%n%throwable" />
+		</Console>
+
+
+
+
+		<RollingFile 
+			name="RollingFile" 
+			fileName=   "${sys:user.home}/logs/hub_acquisition.log" 
+			filePattern="${sys:user.home}/logs/hub_acquisition-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout 
+				disableAnsi="true" 
+				pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}.%M: %msg%n%throwable" />
+			<Policies>
+				<OnStartupTriggeringPolicy />			
+				<SizeBasedTriggeringPolicy size="1 MB" />
+			</Policies>
+		</RollingFile>
+
+
+
+
+	</Appenders>
+	<Loggers>
+		<Root level="all">
+			<AppenderRef ref="Console" level="INFO" />
+			<AppenderRef ref="RollingFile" level="INFO" />
+		</Root>
+	</Loggers>
+</Configuration>

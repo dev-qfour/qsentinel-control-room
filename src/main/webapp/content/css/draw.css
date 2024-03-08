@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+
+.video_wrapper {
+    position: relative;
+    overflow: auto;
+}
+
+.video_wrapper canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: auto;
+}
+
+.wrapper canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.canvas_wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.canvas_wrapper canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

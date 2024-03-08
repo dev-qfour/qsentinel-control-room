@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+
+
+.nav_tool
+{
+	
+	background: white;
+	left:0px;
+	top:0px;
+	margin-top:var(--gap_su_1);
+	
+
+	max-height : 1000px;
+	width : calc(var(--su) * 1);
+	
+	overflow: auto;
+	
+	
+	border-radius: 15px;	
+	
+	
+	
+  	transition: max-height 2s;
+	
+	transition-delay: 0.6s;
+	
+	box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+	
+	
+}
+
+
+.nav_btn
+{
+	position :relative;
+	
+		
+	
+	margin-left: auto;
+	margin-right: auto;
+	
+	height: calc(var(--su)* 1 );
+	line-height: calc(var(--su)* 1 );
+	width: calc(var(--lu)* 0.333 );	
+}
+
+
+
+.nav_btn svg
+{
+	height: calc(var(--su)* 1 );
+	line-height: calc(var(--su)* 1 );
+
+}
+
+
+
+
+
+.nav_seperator
+{
+	position :relative;
+	
+		
+	
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: calc(var(--su)* 0.165 );
+	
+	
+	
+	height: calc(var(--su)* 0.165 );
+	line-height: calc(var(--su)* 0.165 );
+	width: calc(var(--lu)* 0.333 );
+	
+	
+	border-top: 2px dotted var(--gray_color2);
+	
+	
+	
+		
+}
+
+
+
+
+

@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+
+
+
+
+.welcome_header
+{
+	position: relative;
+    display: inline-block;
+    
+    top: calc(var(--su) * 2);
+    
+    
+    width: calc(100% - var(--su)* 1);
+    height: calc(var(--su) * 2);
+    
+     
+   	text-align: center;
+    
+    
+    
+
+}
+
+
+.launch_area
+{
+	position: relative;
+    display: inline-block;
+    
+    margin-top: calc(var(--su) * 2);
+    
+    width: calc(100% - var(--su)* 1);
+ 	max-height: calc(var(--su) * 2);
+ 	
+ 	
+/*  	border: 1px dotted gray;  */
+ 	
+ 	
+ 	text-align: center;
+	
+}
+
+
+.login_btn
+{
+	float :none;
+}

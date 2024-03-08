@@ -1,0 +1,8 @@
+.gjs-fonts::before {
+    display: block;
+    font: normal normal normal 14px font3336;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 3em;
+}

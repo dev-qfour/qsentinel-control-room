@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+
+
+
+
+.item_symb
+{
+	cursor: pointer;
+    background-image: url(../../content/svg/item_symb.svg);
+    width: calc(var(--su) * 1);
+    height: calc(var(--su) * 0.666);
+    background-size: calc(var(--su) *1);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  	
+}
+
+
+
+
+.user_symb
+{
+	cursor: pointer;
+    background-image: url(../../content/svg/user_symb.svg);
+    width: calc(var(--su) * 1);
+    height: calc(var(--su) * 0.666);
+    background-size: calc(var(--su) *1);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  	
+}
+
+
+
+
+.link_symb
+{
+	cursor: pointer;
+    background-image: url(../../content/svg/link_symb.svg);
+    width: calc(var(--su) * 1);
+    height: calc(var(--su) * 0.666);
+    background-size: calc(var(--su) *1);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  	
+}
+
+
+
+.node_symb
+{
+	cursor: pointer;
+    background-image: url(../../content/svg/node_symb.svg);
+    width: calc(var(--su) * 1);
+    height: calc(var(--su) * 0.666);
+    background-size: calc(var(--su) *1);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  	
+  	
+}
+
+
+
+
+.search_symb
+{
+	cursor: pointer;
+    background-image: url(../../content/svg/search_symb.svg);
+    width: calc(var(--su) * 1);
+    height: calc(var(--su) * 0.666);
+    background-size: calc(var(--su) *1);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  	
+  	
+}
+
+
+
+.email_symb
+{
+	cursor: pointer;
+    background-image: url(../../content/svg/email_symb.svg);
+    width: calc(var(--su) * 1);
+    height: calc(var(--su) * 0.666);
+    background-size: calc(var(--su) *1);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  	
+  	
+}
+
+
+
+.sms_symb
+{
+	cursor: pointer;
+    background-image: url(../../content/svg/sms_symb.svg);
+    width: calc(var(--su) * 1);
+    height: calc(var(--su) * 0.666);
+    background-size: calc(var(--su) *1);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  	
+  	
+}
+
+
+
+
+.whatsapp_symb
+{
+	cursor: pointer;
+    background-image: url(../../content/svg/whatsapp_symb.svg);
+    width: calc(var(--su) * 1);
+    height: calc(var(--su) * 0.666);
+    background-size: calc(var(--su) *1);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  	
+  	
+}
+
+
+
+.down_symb
+{
+	cursor: pointer;
+    background-image: url(../../content/svg/down_symb.svg);
+    width: calc(var(--su) * 1);
+    height: calc(var(--su) * 0.666);
+    background-size: calc(var(--su) *1);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  	
+  	
+}
+

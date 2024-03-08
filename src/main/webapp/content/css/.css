@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+
+
+
+.total_range_toolbox
+{
+	position: absolute;
+	background: #88b7d5;
+	background: white;
+	
+	border-radius: var(--padding1);	
+	filter : url(#flat_shadow_down);
+	
+	z-index : 100;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.timeline_marker_overlay
+{
+	fill : var(--visit_color);
+	fill-opacity : 0.1;
+}
+
+
+.marker_circle
+{
+	
+}
+
+
+.visit_marker
+{
+	stroke : var(--visit_color);
+	fill : var(--visit_color);
+	stroke-width : 1px;
+	 
+	
+
+}
+
+
+
+.purchase_marker
+{
+	stroke : var(--purchase_color);
+	fill : var(--purchase_color);
+	stroke-width : 1px;
+}
+
+
+
+.cartexit_marker
+{
+	stroke : var(--cartexit_color);
+	fill : var(--cartexit_color);
+	stroke-width : 1px;
+}
+
+
+
+
+
+.visit_indicator
+{
+	stroke : var(--visit_color);
+	fill : none;
+	stroke-width : 1px;
+	opacity : 0;
+	
+
+}
+
+
+
+.purchase_indicator
+{
+	stroke : var(--purchase_color);
+	fill : none;
+	stroke-width : 1px;
+	opacity : 0;
+}
+
+
+
+.cartexit_indicator
+{
+	stroke : var(--cartexit_color);
+	fill : none;
+	stroke-width : 1px;
+	opacity : 0;
+}
+
+.modal_chart_indicator {
+	position: absolute;
+	background: #88b7d5;
+	background: white;
+	
+	border-radius: var(--padding1);	
+	filter : url(#flat_shadow_down);
+	
+	z-index : 100;
+	
+}
+.modal_chart_indicator:after 
+{
+	position: absolute;
+	
+	left: 50%;
+	top: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	
+	pointer-events: none;
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: rgba(255, 255, 255, 1);
+	border-width: calc(var(--su) * 0.333);
+	margin-left: calc(var(--su) * 0.333 * -1);
+
+/* 	filter : url(#flat_shadow_down); */
+	
+}
+
+
+
+.modal_chart_indicator_content
+{
+	
+	margin-left:var(--gap_su_1);	
+	margin-right:var(--gap_su_1);	
+	margin-bottom:var(--gap_su_1);	
+	
+	
+	width: calc(100% - calc(var(--gap_su_1) * 2 ));
+
+	
+	transition: max-height 0.2s ease;
+	overflow: hidden;
+	
+}
+
+.modal_chart_indicator_row
+{
+	
+	height:calc(var(--su) * 0.333);
+	max-height:calc(var(--su) * 0.333);
+	line-height:calc(var(--su) * 0.333);
+	
+	margin:calc(var(--su) * 0.165);
+/* 	margin-bottom:calc(var(--su) * 0.165); */
+/* 	padding-left:calc(var(--su) * 0.165); */
+	
+	border-bottom: 1px solid var(--gray_color1);
+	
+	
+	
+}
+
+.modal_chart_indicator_row_name
+{
+	float : left;	
+}
+
+
+.modal_chart_indicator_row_value
+{
+	float : right;	
+}
+
+
+
+

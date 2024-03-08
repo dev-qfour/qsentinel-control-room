@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("fontstyle.css");
+@import url("symb.css");
+@import url("btn.css");
+@import url("htmlelements.css");
+@import url("baseframe.css");
+@import url("nav.css");
+
+
+
+
+
+
+
+
+
+:root 
+{
+
+	
+	
+	--blue_color:#0075ff;
+	--red_color:#ff2600;
+	--green_color:#00f900;
+	--amber_color:#ffd400;
+	
+	
+	
+    --themeColor1: #009fff;
+    --themeColor2: #4DF2FF;
+    --themeColor3: #ff6000;
+    --themeColor4: #002fa7;
+    --themeColor5: #6678e8;
+    --themeColor6: #75d5ff;
+    
+    
+    --gray_color1: #ccc;
+    --gray_color2: #919191;
+    --gray_color3: #797979;
+    
+    
+    
+    --focus_color: #0075ff;    
+    --hover_background:#4DF2FF66;
+
+    
+    --warning_background : #fff49a;
+    
+    
+    
+    --error_color:var(--red_color);
+    
+    
+    --chart_gray_color : #999;
+	--chart_primary_single_indicator_color : #0075ff;
+	--chart_secondary_single_indicator_color : #ff9033;
+	--chart_mulit_indicator_color : #00dd33;
+
+
+	--informaion_tool_primary_color : #0075ff;
+
+    
+    --lu:100px;
+    --su:60px;
+    
+    --padding1:calc(var(--su) * 0.111);
+    --padding2:calc(var(--su) * 0.333);
+    --padding3:calc(var(--su) * 0.666);
+    
+    --gap_su_1:calc(var(--su) * 0.111);
+    --gap_su_2:calc(var(--su) * 0.333);
+    --gap_su_3:calc(var(--su) * 0.666);
+    
+   	--gap_lu_1:calc(var(--lu) * 0.111);
+    --gap_lu_2:calc(var(--lu) * 0.333);
+    --gap_lu_3:calc(var(--lu) * 0.666);
+
+    
+    
+    --visit_color : var(--blue_color);
+    --purchase_color : var(--green_color);
+    --cartexit_color : var(--red_color);
+    
+}
+
+
+
+
+::-webkit-scrollbar {
+    background-color:#fff;
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ddd;
+    width: 5px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color:#babac0;
+    width: 5px;
+    border-radius:8px;
+/*     border:4px solid #fff; */
+}
+
+/* ::-webkit-scrollbar-button {display:none} */
+
+
+

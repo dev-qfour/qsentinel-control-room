@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+
+
+.item_timeline_section
+{
+	height: calc(var(--su) * 8 );
+	
+}
+
+
+
+
+.large_chart_radio 
+{
+	position: absolute;
+	z-index: 36;
+	border: solid 1px #000;
+	display: inline-block;
+	margin-left: var(--gap_su_2);
+	padding-right: var(--gap_su_1);
+	margin-top: 3px;
+	border-radius: var(--gap_su_1);
+	overflow: hidden;
+	line-height: calc(  var(--lu) * 0.333 );
+	height: calc(  var(--lu) * 0.333 );
+}
+
+
+
+.large_chart_radio input
+{
+	margin-left: var(--gap_su_1);
+	cursor :pointer;
+}
+
+.large_chart_radio label
+{
+	margin-left: var(--gap_su_1);
+	cursor :pointer;
+}
+

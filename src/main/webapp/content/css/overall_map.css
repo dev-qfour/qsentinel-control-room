@@ -1,0 +1,160 @@
+
+ #map {
+    height: 100%;
+    margin: 0px;
+}
+
+.overall_map_section
+{
+	
+	height: calc(var(--su)*11);
+	
+}
+
+
+
+
+
+
+
+
+.large_chart_radio 
+{
+	position: absolute;
+	z-index: 36;
+	border: solid 1px #000;
+	display: inline-block;
+	margin-left: var(--gap_su_2);
+	padding-right: var(--gap_su_1);
+	margin-top: 3px;
+	border-radius: var(--gap_su_1);
+	overflow: hidden;
+	line-height: calc(  var(--lu) * 0.333 );
+	height: calc(  var(--lu) * 0.333 );
+}
+
+
+
+.large_chart_radio input
+{
+	margin-left: var(--gap_su_1);
+	cursor :pointer;
+}
+
+.large_chart_radio label
+{
+	margin-left: var(--gap_su_1);
+	cursor :pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.legend_vertical
+{
+	position: absolute;
+	top: calc(var(--gap_su_2) * 1);;
+	right: calc(var(--gap_su_2) * 1);
+	
+	width: max-content;
+	opacity : 0.5;
+	
+}
+
+.legend_vertical_li
+{
+	
+	
+	margin-top: 1px;
+	
+	list-style : none;
+	
+	
+	
+	height: calc(var(--su)*0.333);
+	max-height: calc(var(--su)*0.5);
+	
+	
+}
+
+.legend_vertical_text
+{
+	position: relative;
+	display: inline-block;
+	float : left;
+	
+	
+	margin-right: 5px;
+	
+	
+	height: calc(var(--su)*0.333);
+	line-height: calc(var(--su)*0.333);
+	
+	
+	font-family: Montserrat;
+    font-weight: 600;
+    fill: var(--gray_color2);
+    font-size:10px;
+    
+    
+    cursor: pointer;
+    
+	
+}
+
+
+
+.legend_vertical_rect
+{
+	position: relative;
+	display: inline-block;
+	float : right;
+	
+	
+	width : calc(var(--su)*0.333);
+	height: calc(var(--su)*0.333);
+	
+	border-radius : 2px 2px;
+	
+	background : var(--gray_color2);
+	
+	
+	
+}
+
+
+
+
+.legend_vertical:hover 
+{
+	opacity : 1;
+
+}
+
+
+
+.legend_vertical:hover .legend_vertical_text
+{
+	
+	color : black;
+	
+
+}
+
+
+
+.legend_vertical_text:hover
+{
+	color : black;
+}
+

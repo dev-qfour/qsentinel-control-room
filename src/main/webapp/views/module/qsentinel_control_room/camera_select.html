@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<base href="/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./content/assets/svg/logos/QSenS-logo-short.svg">
+
+    <title>Camera Select</title>
+
+    <link rel="stylesheet" href="./content/assets/css/vendor.min.css">
+    <link rel="stylesheet" href="./content/assets/css/theme.min.css" data-hs-appearance="default" as="style">
+    <link href="./content/vendor/fontawesome-pro-5.13.0-web/css/all.css" rel="stylesheet">
+
+<!--
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.0.5/daterangepicker.css" integrity="sha512-gp+RQIipEa1X7Sq1vYXnuOW96C4704yI1n0YB9T/KqdvqaEgL6nAuTSrKufUX3VBONq/TPuKiXGLVgBKicZ0KA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css?family=Inter:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tom-select/1.4.0/css/tom-select.bootstrap5.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.11/flatpickr.min.css"
+          integrity="sha512-MQXduO8IQnJVq1qmySpN87QQkiR1bZHtorbJBD0tzy7/0U9+YIC93QWHeGTEoojMVHWWNkoCp8V6OzVSYrX0oQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+-->
+
+
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+
+    <link href="./content/css/draw.css" rel="stylesheet">
+
+    <script>
+
+
+
+
+    window.hs_config =
+        {
+            "autopath":"@@autopath",
+            "deleteLine":"hs-builder:delete",
+            "deleteLine:build":"hs-builder:build-delete",
+            "deleteLine:dist":"hs-builder:dist-delete",
+            "previewMode":false,"startPath":"/index.html",
+            "vars":{"themeFont":"https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap","version":"?v=1.0"},
+            "layoutBuilder":{
+                "extend":{"switcherSupport":true},
+                "header":{"layoutMode":"default","containerMode":"container-fluid"},
+                "sidebarLayout":"default"
+            },
+            "themeAppearance":
+            {
+                "layoutSkin":"default","sidebarSkin":"default",
+                "styles":{
+                    "colors":{
+                        "primary":"#377dff","transparent":"transparent","white":"#fff","dark":"132144",
+                        "gray":{"100":"#f9fafc","900":"#1e2022"}
+                    },
+                    "font":"Inter"
+                }
+            },
+            "languageDirection":{"lang":"en"},
+            "skipFilesFromBundle":
+            {
+                "dist":[
+                    "assets/js/hs.theme-appearance.js",
+                    "assets/js/hs.theme-appearance-charts.js","assets/js/demo.js"
+                    ],
+                "build":["assets/css/theme.css",
+                         "assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js",
+                         "assets/js/demo.js","assets/css/theme-dark.css",
+                         "assets/css/docs.css","assets/vendor/icon-set/style.css",
+                         "assets/js/hs.theme-appearance.js","assets/js/hs.theme-appearance-charts.js",
+                         "node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js",
+                         "assets/js/demo.js"
+                         ]
+            },
+            "minifyCSSFiles":["assets/css/theme.css","assets/css/theme-dark.css"],
+            "copyDependencies":{
+                "dist":{"*assets/js/theme-custom.js":""},
+                "build":{"*assets/js/theme-custom.js":"","node_modules/bootstrap-icons/font/*fonts/**":"assets/css"}
+            },
+            "buildFolder":"","replacePathsToCDN":{},
+            "directoryNames":{"src":"./src","dist":"./dist","build":"./build"},
+            "fileNames":{
+                "dist":{"js":"theme.min.js","css":"theme.min.css"},
+                "build":{"css":"theme.min.css","js":"theme.min.js",
+                "vendorCSS":"vendor.min.css","vendorJS":"vendor.min.js"}
+                },
+            "fileTypes":"jpg|png|svg|mp4|webm|ogv|json"
+            }
+
+
+     window.hs_config.gulpRGBA = (p1) => {
+            const options = p1.split(',')
+            const hex = options[0].toString()
+            const transparent = options[1].toString()
+
+            var c;
+            if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+            c= hex.substring(1).split('');
+            if(c.length== 3){
+              c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+            }
+            c= '0x'+c.join('');
+            return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',' + transparent + ')';
+            }
+            throw new Error('Bad Hex');
+        }
+        window.hs_config.gulpDarken = (p1) => {
+            const options = p1.split(',')
+
+            let col = options[0].toString()
+            let amt = -parseInt(options[1])
+            var usePound = false
+
+            if (col[0] == "#") {
+            col = col.slice(1)
+            usePound = true
+            }
+            var num = parseInt(col, 16)
+            var r = (num >> 16) + amt
+            if (r > 255) {
+            r = 255
+            } else if (r < 0) {
+            r = 0
+            }
+            var b = ((num >> 8) & 0x00FF) + amt
+            if (b > 255) {
+            b = 255
+            } else if (b < 0) {
+            b = 0
+            }
+            var g = (num & 0x0000FF) + amt
+            if (g > 255) {
+            g = 255
+            } else if (g < 0) {
+            g = 0
+            }
+            return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
+        }
+        window.hs_config.gulpLighten = (p1) => {
+              const options = p1.split(',')
+
+              let col = options[0].toString()
+              let amt = parseInt(options[1])
+              var usePound = false
+
+              if (col[0] == "#") {
+                col = col.slice(1)
+                usePound = true
+              }
+              var num = parseInt(col, 16)
+              var r = (num >> 16) + amt
+              if (r > 255) {
+                r = 255
+              } else if (r < 0) {
+                r = 0
+              }
+              var b = ((num >> 8) & 0x00FF) + amt
+              if (b > 255) {
+                b = 255
+              } else if (b < 0) {
+                b = 0
+              }
+              var g = (num & 0x0000FF) + amt
+              if (g > 255) {
+                g = 255
+              } else if (g < 0) {
+                g = 0
+              }
+          return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
+        }
+
+    </script>
+
+
+</head>
+
+<body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl footer-offset">
+
+<script src="./content/assets/js/hs.theme-appearance.js"></script>
+<!--<script src="./content/assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js"></script>-->
+
+<header id="header"
+        class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered bg-white">
+    <div class="navbar-nav-wrap">
+        <!-- Logo -->
+        <a class="navbar-brand" href="/" aria-label="Front">
+            <img class="navbar-brand-logo" src="./content/assets/svg/logos/QSenS-logo.svg" alt="Logo"
+                 data-hs-theme-appearance="default">
+            <img class="navbar-brand-logo-mini" src="./content/assets/svg/logos/QSenS-logo-short.svg" alt="Logo"
+                 data-hs-theme-appearance="default">
+        </a>
+        <!-- End Logo -->
+
+        <div class="navbar-nav-wrap-content-start">
+            <!-- Navbar Vertical Toggle -->
+            <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler"
+                    style="opacity: 1;">
+                <i class="bi-arrow-bar-left navbar-toggler-short-align"
+                   data-bs-template="<div class=&quot;tooltip d-none d-md-block&quot; role=&quot;tooltip&quot;><div class=&quot;arrow&quot;></div><div class=&quot;tooltip-inner&quot;></div></div>"
+                   data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Collapse"
+                   aria-label="Collapse"></i>
+                <i class="bi-arrow-bar-right navbar-toggler-full-align"
+                   data-bs-template="<div class=&quot;tooltip d-none d-md-block&quot; role=&quot;tooltip&quot;><div class=&quot;arrow&quot;></div><div class=&quot;tooltip-inner&quot;></div></div>"
+                   data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Expand"
+                   aria-label="Expand"></i>
+            </button>
+
+            <!-- End Navbar Vertical Toggle -->
+
+            <!-- End Search Form -->
+        </div>
+
+        <div id="navbar-user" class="navbar-nav-wrap-content-end">
+            <!-- Navbar -->
+            <ul class="navbar-nav">
+
+                <li class="nav-item d-none d-sm-inline-block">
+                    <!-- Notification -->
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="navbarNotificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation="">
+                            <i class="bi-bell"></i>
+                            <span class="btn-status btn-sm-status btn-status-danger"></span>
+                        </button>
+
+                        <div class="dropdown-menu dropdown-menu-end dropdown-card navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarNotificationsDropdown" style="width: 25rem; opacity: 1;">
+                            <!-- Header -->
+                            <div class="card-header card-header-content-between">
+                                <h4 class="card-title mb-0">Notifications</h4>
+                            </div>
+                            <!-- End Header -->
+
+                            <!-- Body -->
+                            <div class="card-body-height">
+                                <!-- Tab Content -->
+                                <div class="tab-content" id="notificationTabContent">
+                                    <div class="tab-pane fade active show" id="notificationNavOne" role="tabpanel" aria-labelledby="notificationNavOne-tab">
+                                        <!-- List Group -->
+                                        <ul class="list-group list-group-flush navbar-card-list-group">
+                                            <!-- Item -->
+                                            <li class="list-group-item form-check-select">
+                                                <div class="row">
+                                                    <div class="col-auto">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="bi bi-exclamation-triangle-fill text-danger display-4"></i>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Col -->
+
+                                                    <div class="col ms-n2">
+                                                        <h5 class="mb-1 camera_name"></h5>
+                                                        <p class="text-body fs-5">Number Of People track <span class="badge bg-success person_count">0</span></p>
+                                                    </div>
+                                                    <!-- End Col -->
+
+                                                    <small class="col-3 text-muted text-cap time_input"></small>
+                                                    <!-- End Col -->
+                                                </div>
+                                                <!-- End Row -->
+
+                                                <a class="stretched-link" href="#"></a>
+                                            </li>
+                                            <!-- End Item -->
+
+                                        </ul>
+                                        <!-- End List Group -->
+                                    </div>
+                                </div>
+                                <!-- End Tab Content -->
+                            </div>
+                            <!-- End Body -->
+
+                            <!-- Card Footer -->
+                            <a class="card-footer text-center" href="user/qsentinel_operation/incidence_report">
+                                View all incidence report <i class="bi-chevron-right"></i>
+                            </a>
+                            <!-- End Card Footer -->
+                        </div>
+                    </div>
+                    <!-- End Notification -->
+                </li>
+
+
+                <li class="nav-item">
+                    <!-- Account -->
+                    <div class="dropdown">
+                        <a class="navbar-dropdown-account-wrapper" href="javascript:;" id="accountNavbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation="">
+                            <div class="avatar avatar-sm avatar-soft-primary avatar-circle">
+                                <span class="avatar-initials login_name">RW</span>
+                                <span class="avatar-status avatar-sm-status avatar-status-success"></span>
+                            </div>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-account" aria-labelledby="accountNavbarDropdown" style="width: 16rem;">
+                            <div class="dropdown-item-text">
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar avatar-sm avatar-soft-primary avatar-circle">
+                                        <span class="avatar-initials login_name">RG</span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 id="userDropdown" class="mb-0">Rahul Gupta</h5>
+                                        <p id="emailDropdown" class="card-text text-body">Rahul@quantumfour.com</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dropdown-divider"></div>
+
+
+                            <a class="dropdown-item" href="logout">Sign out</a>
+                        </div>
+                    </div>
+                    <!-- End Account -->
+                </li>
+            </ul>
+            <!-- End Navbar -->
+        </div>
+
+    </div>
+</header>
+
+
+<aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered bg-white  ">
+    <div class="navbar-vertical-container">
+        <div class="navbar-vertical-footer-offset">
+            <!-- Logo -->
+
+            <a class="navbar-brand" href="https://www.qsens.io/" aria-label="Front">
+                <img class="navbar-brand-logo" src="./content/assets/svg/logos/QSenS-logo.svg" alt="Logo"
+                     data-hs-theme-appearance="default">
+                <img class="navbar-brand-logo-mini" src="./content/assets/svg/logos/QSenS-logo-short.svg" alt="Logo"
+                     data-hs-theme-appearance="default">
+            </a>
+
+            <!-- End Logo -->
+
+            <!-- Navbar Vertical Toggle -->
+            <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
+                <i class="bi-arrow-bar-left navbar-toggler-short-align"
+                   data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+                   data-bs-toggle="tooltip" data-bs-placement="right" title="Collapse"></i>
+                <i class="bi-arrow-bar-right navbar-toggler-full-align"
+                   data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+                   data-bs-toggle="tooltip" data-bs-placement="right" title="Expand"></i>
+            </button>
+
+            <!-- End Navbar Vertical Toggle -->
+
+            <!-- Content -->
+            <div class="navbar-vertical-content">
+
+
+            </div>
+            <!-- End Content -->
+
+            <!-- Footer -->
+            <div class="navbar-vertical-footer">
+                <ul class="navbar-vertical-footer-list">
+
+                    <li class="navbar-vertical-footer-list-item">
+                        <p class="fs-6 mb-0">
+                            <span class="text-dark fw-light">© Quantum Four</span>
+                            <span id="footer-year" class="d-none d-sm-inline-block"> </span>
+                        </p>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- End Footer -->
+
+
+        </div>
+    </div>
+</aside>
+
+<main id="content" role="main" class="main">
+
+    <!-- Content -->
+    <div class="content container-fluid">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div id="page-breadcrumb" class="row align-items-end">
+                <div class="col mb-2 mb-sm-0">
+                    <nav aria-label="breadcrumb" class="mb-4">
+                        <ol class="breadcrumb breadcrumb-no-gutter">
+                        </ol>
+                    </nav>
+                    <h1 class="page-header-title">Camera Select</h1>
+                </div>
+                <!-- End Col -->
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Page Header -->
+
+        <div class="row">
+            <!-- Card -->
+            <div class="card">
+                <!-- Body -->
+                <div class="card-body">
+
+                    <div class="row mb-4">
+                        <label for="select-work-place"  class="col-3 col-form-label form-label">Select Work Place</label>
+                        <div class="col-9">
+                            <select id="select-work-place"  class="form-select" placeholder="Pick Workplaces..." autocomplete="off" multiple></select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+
+                        <label for="select-camera"  class="col-3 col-form-label form-label">Select Camera</label>
+
+                        <div class="col-9">
+                            <select id="select-camera"  class="form-select" placeholder="Pick cameras..." autocomplete="off" multiple>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex justify-content-end mb-4">
+
+                        <button class="btn  btn-outline-primary show_camera_btn" type="button">
+                            <i class="fal fa-camera me-2 "></i>Show Cameras
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div id="camera-list" class="row">
+        </div>
+
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="row justify-content-between align-items-center">
+            <div class="col">
+                <p id="page-footer" class="fs-6 mb-0">Copyright � 2022 | Powered by Quantum Four</p>
+            </div>
+            <!-- End Col -->
+        </div>
+        <!-- End Row -->
+    </div>
+    <!-- End Footer -->
+
+
+
+</main>
+
+<!-- Toast -->
+<div id="intruderAlertLiveToast" class="position-fixed toast hide bg-soft-danger" role="alert" aria-live="assertive" aria-atomic="true" style="top: 20px; right: 20px; z-index: 1000;">
+    <div class="toast-header">
+        <div class="d-flex align-items-center flex-grow-1">
+            <i class="bi bi-exclamation-triangle-fill text-danger display-4"></i>
+
+            <div class="flex-grow-1 ms-3">
+                <h5 class="mb-0 alert_type"></h5>
+                <small class="ms-auto intruder_alert_time_input">0</small>
+            </div>
+            <div class="text-end">
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <div class="toast-body">
+        Number of People Track <span class="badge bg-primary h5 intruder_alert_person_count ms-2"></span>
+    </div>
+</div>
+<!-- End Toast -->
+
+<!-- Toast -->
+<div id="groundTeamAlertLiveToast" class="position-fixed toast hide bg-soft-warning" role="alert" aria-live="assertive" aria-atomic="true" style="top: 20px; right: 20px; z-index: 1000;">
+    <div class="toast-header">
+        <div class="d-flex align-items-center flex-grow-1">
+            <i class="bi bi-exclamation-triangle-fill text-warning display-4"></i>
+
+            <div class="flex-grow-1 ms-3">
+                <h5 class="mb-0 alert_type"></h5>
+                <small class="ms-auto ground_team_alert_time_input">0</small>
+            </div>
+            <div class="text-end">
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <div class="toast-body">
+        <div>
+            Camera Name : <span class="ground_team_alert_camera_name ms-2"></span>
+        </div>
+        <div>
+            Workplace Name : <span class="ground_team_alert_workplace_name ms-2"></span>
+        </div>
+        <div>
+            Number of People Track <span class="badge bg-primary h5 ground_team_alert_person_count ms-2"></span>
+        </div>
+
+    </div>
+</div>
+<!-- End Toast -->
+
+<!-- Modal -->
+<div class="modal fade" id="warning-model" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger" id="staticBackdropLabel"><i class="bi bi-exclamation-circle me-1"></i>Warning Message</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+            <div class="modal-body warning_model_message">
+                <p>Are you sure you want Alert Central?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+
+<!-- JS Implementing Plugins -->
+
+<!--<script src="./content/assets/vendor/jquery/dist/jquery.min.js"></script>-->
+<!--<script src="./content/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>-->
+
+<script src="./content/assets/js/vendor.min.js"></script>
+<script src="./content/assets/js/theme.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/8.2.3/adapter.min.js"></script>
+
+<script src="./content/js/lib/settings.js"></script>
+<script src="./content/js/lib/janus.js"></script>
+
+<!--
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tom-select/1.4.0/js/tom-select.complete.js"
+        integrity="sha512-n7cYHQ+TOT7Swhpaj8iX2tFqfp9lJzL2DBPQyzkrOvOUQqzbzBeacrogD4ydIkncRKeMyteYcnc018lcqsQ0zA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dashjs/4.7.3/dash.all.debug.min.js" integrity="sha512-btMyCZsW46kRdjWLA2MwZlfjpaJU7e8EFbj3pXWKGoU6hNAqxfLQ4gF/vw6fKPdGqZkRlhmzTTKTpPMn8wLKFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+-->
+
+
+<script src="./content/js/module/qsentinel_control_room/camera_select.js"></script>
+
+
+<script type="text/javascript" th:inline="javascript">
+
+    /*<![CDATA[*/
+
+        var user = [[${userinfo}]];  //Make sure this is bills and not bill as you have done it.
+        var area_id = [[${areaId}]];
+
+        if (user.authenticated==false)
+        {
+            window.location="error/access-denied";
+        }
+        else
+        {
+            var user_id = user.user_id;
+            var client_id=user.client_id;
+            var area_id= user.area_id;
+            //load_userinfo(userinfo);
+
+        }
+
+        var path_js = [[${path_js}]];
+
+        var category = [[${category}]];
+
+        var module_name = [[${module_name}]];
+
+        var system_name = [[${system_name}]];
+
+        let myScript = document.createElement("script");
+        myScript.setAttribute("src", path_js+"/base.js");
+        document.body.appendChild(myScript);
+
+        myScript.addEventListener("load", scriptLoaded, false);
+
+        function scriptLoaded()
+        {
+            update_page_breadcrumb();
+
+            navbar_create("#nav_camera_select");
+            getPageFooter();
+            init();
+
+
+              // INITIALIZATION OF NAVBAR VERTICAL ASIDE
+              // =======================================================
+            new HSSideNav('.js-navbar-vertical-aside').init()
+
+
+              // INITIALIZATION OF FORM SEARCH
+              // =======================================================
+            new HSFormSearch('.js-form-search');
+
+
+              // INITIALIZATION OF BOOTSTRAP DROPDOWN
+              // =======================================================
+              // HSBsDropdown.init()
+
+            HSCore.components.HSClipboard.init('.js-clipboard')
+
+
+        }
+
+
+
+    /*]]>*/
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,249 @@
+
+
+
+
+
+.title_text
+{
+	
+	font-weight: 200;
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 20px; 
+	letter-spacing: 6px; 
+	
+}
+
+
+.sub_title_text
+{
+	
+	font-weight: 500;
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 17px; 
+	letter-spacing: 2px; 
+	text-transform: capitalize;	
+	alignment-baseline: central;
+	fill : var(--themeColor1);
+	color : var(--themeColor1);
+	
+	
+}
+
+
+
+
+
+
+.extra_large_text
+{
+	font-weight: 300; 
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 19px; 
+	letter-spacing: 1px; 
+	
+	text-transform: capitalize;	
+	alignment-baseline: central;
+	
+}
+
+
+.large_text
+{
+	font-weight: 600; 
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 15px; 
+	
+	text-transform: capitalize;	
+	alignment-baseline: central;
+	
+}
+
+.normal_text
+{
+	font-weight: 400; 
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 13px; 
+	alignment-baseline: central;
+	
+}
+
+
+
+.small_text
+{
+	font-weight: 500; 
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 11px; 
+	text-transform: capitalize;	
+	alignment-baseline: central;
+	
+}
+
+
+.tiny_text
+{
+	font-weight: 400; 
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 7px; 
+	text-transform: capitalize;	
+	alignment-baseline: central;
+	
+}
+
+
+
+
+.chart_main_axis_title
+{
+	font-weight: 700; 
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 11px; 
+	text-transform: capitalize;	
+	alignment-baseline: central;
+	fill:var(--blue_color);
+}
+
+
+
+
+.chart_main_legend_text
+{
+	font-weight: 700; 
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 11px; 
+	text-transform: capitalize;	
+	alignment-baseline: central;
+	letter-spacing: 0px; 
+	
+/* 	fill:var(--blue_color); */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.list_text
+{
+	font-weight: 500; 
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 14px; 
+	text-transform: capitalize;
+	
+}
+
+.error_text
+{
+	fill : red;
+}
+
+
+.caption_text
+{
+	
+	font-weight: 800;
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 10px; 
+	letter-spacing: 1px; 
+	fill: #444;
+	text-transform: uppercase;
+	
+}
+
+.caption_val
+{
+	font-weight: 300;
+	text-align: left; 
+	font-family: Montserrat; 
+	font-size: 18px; 
+	letter-spacing: 1px; 
+	text-transform: capitalize;
+	
+	
+}
+
+
+
+
+
+
+
+.thin_text
+{
+	font-weight: 300;
+	
+}
+
+
+
+
+.bold_text
+{
+	font-weight: 600;
+	
+}
+
+
+
+.visit_text
+{
+	fill : var(--visit_color);
+	color : var(--visit_color);
+	
+}
+
+
+.purchase_text
+{
+	fill : var(--purchase_color);
+	color : var(--purchase_color);
+	
+}
+
+
+.cartexit_text
+{
+	fill : var(--cartexit_color);
+	color : var(--cartexit_color);
+	
+}
+
+
+
+.faint_text
+{
+	fill : var(--gray_color2);
+	color : var(--gray_color2);
+}
+
+
+
+.active_link_text
+{
+	fill : var(--visit_color);
+	color : var(--visit_color);
+	
+}
+
+
+

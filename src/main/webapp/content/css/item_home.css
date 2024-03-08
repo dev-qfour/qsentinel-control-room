@@ -1,0 +1,260 @@
+@charset "UTF-8";
+
+
+.tooltip_box_col_value
+{
+	float: left;
+    font-weight: 700;
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 15px;
+    text-transform: capitalize;
+    alignment-baseline: central;
+    
+    
+}
+
+.item_detail_section
+{
+	float: right;
+	
+	
+}
+
+
+
+
+.image_indicator  
+{
+
+    height: auto;
+   
+}
+
+
+.image_indicator .toolbox_section_indicator_value 
+{
+    position: relative;
+    display: inline-block;
+    float: left;
+    min-width: calc(var(--su) * 2.3);
+    max-width: calc(var(--su) * 2.3);
+    height: calc(var(--su) * 2.3 - var(--gap_su_1) * 0.5);
+    /* max-height: calc(var(--su) * 2.666); */
+    line-height: calc(var(--su) * 2.3 - var(--gap_su_1) * 0.5);
+    margin-right: 0;
+    margin-left: 37%;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.image_indicator .toolbox_section_indicator_value img
+{
+	position: relative;
+	display : inline-block;
+	
+	top:10%;
+	
+	margin-right: auto;
+	margin-left: auto;
+	
+	margin-right: auto;
+	margin-left: auto;
+	
+	max-width: 100%;	
+	height: 80%;
+	max-height: 80%;
+	
+
+	
+}
+
+
+
+
+
+.addtional_indicators_section
+{
+	padding-bottom: calc(var(--gap_su_2) * 1);
+	
+}
+
+.addtional_indicators_section .toolbox_section_indicator_box
+{	
+	margin-top: calc(var(--gap_su_2) * 1);
+	margin-left: 9%;
+	
+}
+
+
+
+.toolbox_section_indicator_box
+{
+    position: relative;
+    display: inline-block;
+    float: left;
+    
+    width :  calc( calc(100vw - calc(var(--gap_su_2) * 4 )) * 0.25 ) ;
+    height :  calc(var(--su) * 1.666) ;
+    
+    border : 2px solid #6fa0ff77;
+    
+    
+    
+    border-radius : 18px 18px;
+    
+    	
+}
+
+.toolbox_section_indicator_box:hover
+{
+/* 	box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;  	 */
+
+	box-shadow:  6px 6px 12px #c1c1c1, 
+            	 -6px -6px 12px #ffffff;
+             
+	border : 2px solid #2688ff;
+	
+}
+
+
+.toolbox_section_indicator_box_header
+{
+    position: relative;
+    display: inline-block;
+    float: left;	
+    
+	margin-left: calc(var(--gap_su_2) * 1);
+    
+    width : calc(100% - var(--gap_su_2) * 1) ; 
+    height :  calc(var(--gap_su_2) * 1) ;
+    line-height :  calc(var(--gap_su_2) * 2) ;
+    
+    
+    font-weight: 700;
+    text-align: left;
+    font-family: Montserrat;
+    font-size: 13px;
+    text-transform: capitalize;
+    alignment-baseline: central;
+    
+    
+}
+
+.toolbox_section_indicator_box_value
+{
+    position: relative;
+    display: inline-block;
+    float: left;	
+    
+    
+    margin-left: calc(var(--gap_su_2) * 1);
+    
+    
+
+    width : calc(100% - var(--gap_su_2) * 1) ; 
+    height :  calc(var(--gap_su_3) * 1) ;
+    line-height :  calc(var(--su) * 1) ;
+    
+    
+        
+    font-weight: 400;
+    text-align: left;
+    font-family: Montserrat;
+    font-size: 27px;
+
+    
+    text-transform: capitalize;
+    alignment-baseline: central;
+    
+    
+}
+
+.toolbox_section_indicator_box_descr
+{
+    position: relative;
+    display: inline-block;
+    float: left;	
+    
+    
+    
+    margin-left: calc(var(--gap_su_2) * 1);
+    
+    
+
+    width : calc(100% - var(--gap_su_2) * 1) ; 
+    height :  calc(var(--gap_su_3) * 1) ;
+    line-height :  calc(var(--gap_su_3) * 1) ;
+    
+    
+        
+    font-weight: 400;
+    text-align: left;
+    font-family: Montserrat;
+    font-size: 13px;
+    color: var(--gray_color2);
+        
+    text-transform: capitalize;
+    alignment-baseline: central;
+    
+    
+    
+    
+    
+}
+
+
+.toolbox_section_indicator_box_icon
+{
+    position: absolute;
+    display: block;
+    float: left;
+    
+    
+    right: 0%;
+    
+    
+    min-width: calc(var(--su) * 1.666);
+    max-width: calc(var(--su) * 1.666);
+    height: calc(var(--su) * 1.666);    
+    max-height: calc(var(--su) * 1.666);
+    line-height: calc(var(--su) * 2.3 - var(--gap_su_1) * 0.5);
+    
+    
+    text-align: center;
+    cursor: pointer;	
+}
+
+
+
+
+
+.toolbox_section_indicator_box_icon img
+{
+	position: relative;
+	display : inline-block;
+	
+	top:10%;
+	
+	margin-right: auto;
+	margin-left: auto;
+	
+	margin-right: auto;
+	margin-left: auto;
+	
+	max-width: 100%;	
+	height: 80%;
+	max-height: 80%;
+	
+
+	
+}
+
+
+
+
+
+
+
+

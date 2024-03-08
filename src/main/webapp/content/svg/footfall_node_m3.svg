@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+<linearGradient id="blueGradient" gradientUnits="userSpaceOnUse" x1="17.4731" y1="17.4731" x2="82.5269" y2="82.5269">
+	<stop  offset="0" style="stop-color:#00BCFF;stop-opacity:0.7"/>
+	<stop  offset="0.0025" style="stop-color:#00BCFF;stop-opacity:0.7007"/>
+	<stop  offset="0.2798" style="stop-color:#00ACFF;stop-opacity:0.7839"/>
+	<stop  offset="0.5901" style="stop-color:#00A2FF;stop-opacity:0.877"/>
+	<stop  offset="1" style="stop-color:#009FFF"/>
+</linearGradient>
+<linearGradient id="orangeGradient" gradientUnits="userSpaceOnUse" x1="17.4731" y1="84.5269" x2="82.5269" y2="19.4731" gradientTransform="matrix(1 0 0 -1 0 102)">
+	<stop  offset="0" style="stop-color:#DB7C0E;stop-opacity:0.7"/>
+	<stop  offset="0.2798" style="stop-color:#EB5B00;stop-opacity:0.7716"/>
+	<stop  offset="0.5962" style="stop-color:#E06722;stop-opacity:0.9127"/>
+	<stop  offset="1" style="stop-color:#FF6000"/>
+</linearGradient>
+
+<circle class="footfall_node_circle" fill="url(#blueGradient)" cx="50" cy="50" r="46"/>
+</svg>
